@@ -12,6 +12,7 @@ abstract public class MemoryDBRepoAbstract<T extends MemoryDBEntity> implements 
     public Optional<T> findById(int index){
         return db.stream().filter(it -> it.getIndex() == index).findFirst();
     }
+
     @Override
     public T save(T entity){
         var optionalEntity = db.stream().filter(it -> it.getIndex() == entity.getIndex()).findFirst();
